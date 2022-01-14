@@ -1,0 +1,79 @@
+{% extends 'new_base.html' %}
+{%load static%}
+{%block content%}
+
+<style>
+
+#box2{
+  padding: 1% 5% 1% 5%;
+  background-color: white;
+  border-radius: 20px;
+  float: left;
+  margin-top: 1%;
+  margin-left: 6%;
+  margin-right: 9%;
+}
+#box2 h4,#box2 img{
+  float: left;
+  margin-right: 30px;
+}
+h4{
+  font-weight: 400;
+  margin-top: 10px;
+  color: black;
+    width: 82px;
+}
+#hiddendiv{
+  height: auto;
+  width: 75%;
+  float: right;
+
+}
+#box2 img{
+  margin-top: 15px;
+}
+@media (max-width:800px) and (min-width:360px){
+  #box2{
+    padding: 1% 5% 1% 5%;
+    background-color: white;
+    border-radius: 20px;
+    float: left;
+    margin-top: 1%;
+    margin-left: 6%;
+    margin-right: 9%;
+  }
+  #box2 img{
+    margin-top: 15px;
+  }
+  h4{
+    font-weight: 400;
+    margin-top: 3px;
+    color: black;
+    width: 103px;
+    font-size: 15px;
+  }
+
+}
+ </style>
+<div><label id="myprofile">LEAVE REQUESTS</label>
+<div id="hiddendiv">
+    {% for le in leave %}
+    {% if forloop.first %} {% endif %}
+  <a href="adminleaveapplication2?empid={{ le.id }}"><div id="box2" class="shadow bg-white">
+    <img src="{% static '/circle.png' %}" width="25" height="25">
+    <h4>{{ le.assignedBy}}</h4>
+    <h4>{{ le.department}}</h4>
+    <h4>Leave from</h4>
+    <h4>{{ le.leavefrom}}</h4>
+    <h4>Leave to</h4>
+    <h4>{{ le.leaveto}}</h4>
+  </div></a>
+
+{% endfor %}
+
+
+
+</div>
+</div>
+</div>
+{%endblock%}

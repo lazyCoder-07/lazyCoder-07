@@ -1,0 +1,55 @@
+{%extends 'new_base.html'%}
+{%load static%}
+{%block content%}
+<style>
+
+#smallbox{
+  background-color: white;
+  width: 220px;
+  border-radius: 15px;
+  float: right;
+  margin-left: 50px;
+  border-width: 0px;
+}
+#boxes{
+  max-width: 75%;
+  float: right;
+  margin-right: 6%;
+}
+#boxe h5{
+  margin-right: 50px;
+  float: right;
+  margin-left: 40px;
+  font-weight: 300;
+}
+h5{
+  opacity: 0.55;
+  color:#000000;
+}
+
+
+  </style>
+<div><label id="myprofile">ATTENDANCE</label>
+{% for leave in give %}
+
+<div id="boxes">
+<a href="adminleaveapplication1?empid={{ leave.branch }}"><button type="button" id="smallbox" class="col shadow p-3 mb-5 bg-white"><h5>Leave Requests</h5>
+<img src="{% static 'leaveapplication.png'%}" height="100" width="100">
+</button></a>
+
+<a href="adminputmanagerattendance?empid={{ leave.branch }}"><button type="button" id="smallbox" class="col shadow p-3 mb-5 bg-white"><h5>Put manager attendance</h5>
+<img src="{% static 'putmanagerattendance.png'%}" height="100" width="100">
+</button></a>
+<a href="adminmanagerattendance1?empid={{ leave.branch }}"><button type="button" id="smallbox" class="col shadow p-3 mb-5 bg-white"><h5>Manager attendance</h5>
+<img src="{% static 'managerattendance.png'%}" height="100" width="100">
+</button></a>
+<a href="adminemployeeattendance1"><button type="button" id="smallbox" class="col shadow p-3 mb-5 bg-white"><h5>Employee attendance</h5>
+<img src="{% static 'employeeattendance.png'%}" height="100" width="100">
+</button></a>
+
+</div>
+
+</div>
+{% endfor %}
+
+{%endblock%}
